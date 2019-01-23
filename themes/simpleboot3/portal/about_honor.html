@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$site_info.site_name|default=''}</title>
+   <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_honor">
+        <h2 class="N_honor_title">{$about_honor['name']}</h2>
+        <ul class="N_honor_ul" id="h_ul">
+
+             <volist name='honorcontent' id='vo'> 
+            <li>
+                <a href="./upload/{$vo.thumbnail}" title="{$vo.post_title}">
+                    <div class="N_honor_ul_img">
+                      <img src="./upload/{$vo.thumbnail}">
+                        <div></div>
+                    </div>
+                    <div class="N_honor_ul_text">
+                        <h2>{$vo.post_title}</h2>
+                    </div>
+                    <div class="N_honor_ul_bg"></div>
+                </a>
+            </li>
+            
+              </volist>
+
+        </ul>
+    </div>
+</div>
+<!------------正文------------->
+
+<div class="bigbg" id="bigbg"></div>
+<div class="bigbox" id="bigbox">
+    <div class="bigbox_div" id="bigbox_div"></div>
+    <img id="bigbox_img" class="bigbox_img" src="__TMPL__/public/assets/images/ho_01_big.jpg">
+    <h2 id="bigbox_h2" class="bigbox_h2">荣誉证书11</h2>
+</div>
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<div class="footer">
+    <div class="Content footer_box">
+        <ul class="footer_box_ul">
+            <li>
+                <h2>Reputation business</h2>
+                <div>
+                    <a href="about.html">Company Profile</a>
+                    <a href="structure.html">Organization</a>
+                    <a href="about_honor.html">Honor</a>
+                </div>
+            </li>
+            <li>
+                <h2>Project</h2>
+                <div>
+                    <a href="project_list.html?id=9">Landmark business center</a>
+                    <a href="project_list.html?id=10">City complex</a>
+                    <a href="project_list.html?id=11">Featured Commercial Street</a>
+                    <a href="project_list.html?id=12">Transportation Hub Business Center</a>
+                </div>
+            </li>
+            <li>
+                <h2>news</h2>
+                <div>
+                    <a href="news_list.html?id=13">company information</a>
+                    <a href="news_list.html?id=14">Project dynamics</a>
+                    <a href="news_list.html?id=15">Media reprint</a>
+                </div>
+            </li>
+            <li>
+                <h2>Partner</h2>
+                <div>
+                    <a href="cooperation.html">Partner</a>
+                    <a href="contact.html">contact us</a>
+                    <a href="join.html">Recruitment</a>
+                </div>
+            </li>
+        </ul>
+        <div class="footer_box_div">
+            <h2 class="footer_box_div_h2">contact us</h2>
+           
+
+
+            <div class="footer_box_div_text">
+                
+                <p>{$c_base[1]['description']}</p>
+                <p>tel: {$c_base[0]['description']}</p>
+                <p>e-mail: {$c_base[2]['description']}</p>
+            </div>
+            <div class="footer_box_div_lx">
+                <div class="footer_box_div_erweima">
+                    <img src="__TMPL__/public/assets/images/erweima.jpg">
+                </div>
+                <div class="footer_box_div_phone">
+                    <img src="__TMPL__/public/assets/images/phone.png">
+                    <h2>{$c_base[0]['description']}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bq">
+
+
+        <p>{$site_info.site_icp}  </p>
+        <a>{$site_info.site_gwa}  </a>
+    </div>
+</div>

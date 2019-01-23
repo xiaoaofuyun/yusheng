@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>{$site_info.site_name|default=''}</title>
+   <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'/>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_honor">
+        <h2 class="N_honor_title">{$details['0']['post_title']}</h2>
+        <div class="N_newsdetails">
+            <div class="N_newsdetails_content">
+                <php>
+                    $content=htmlspecialchars_decode($details['0']['post_content']);
+                </php>
+               
+				{:htmlspecialchars_decode(str_replace("portal/","/upload/portal/",str_replace("default/","/upload/default/",$content)))}
+            </div>
+            <div class="N_newsdetails_fy">
+
+                <if $pre=='没有了'>
+                      <div>
+                    <a>上一篇：{$pre}</a>
+                </div>
+                 
+                 <else/>
+                       <div>
+                    <a href="/newsdetails.html?id={$aid}&&cid={$pre_id}">上一篇：{$pre}</a>
+                </div>
+                </if>
+
+                <if $last=='没有了'>
+                    <div class="right">
+                    <a>下一篇：{$last}</a>
+                </div>
+                    <else/>
+                    <div class="right">
+                    <a href="/newsdetails.html?id={$aid}&&cid={$last_id}">下一篇：{$last}</a>
+                </div>
+                </if>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

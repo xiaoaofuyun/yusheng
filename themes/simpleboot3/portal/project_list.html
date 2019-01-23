@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$site_info.site_name|default=''}</title>
+   <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'/>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_honor">
+        <h2 class="N_honor_title">{$result['name']}</h2>
+        <div class="N_project_list">
+            <div class="container">
+                <div class="waterfall">
+
+
+                       
+
+
+                    <volist name='news_content' id='vo'>
+                    <div class="item">
+                        <div class="item_box">
+                            <div class="N_project_list_img">
+                                <img src="./upload/{$vo.thumbnail}">
+                            </div>
+                            <div class="N_project_list_text">
+                                <h2>{$vo.post_title}</h2>
+                            </div>
+                            <div class="N_project_list_bigbg"></div>
+                            <div class="N_project_list_bigborder"></div>
+                            <div class="N_project_list_box">
+                                <h2>{$vo.post_title}</h2>
+                                <p>{$vo.post_excerpt}</p>
+                                <a href="projectdetails.html?id={$c_id}&cid={$vo.id}&pg={$pg}">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                      </volist>        
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="N_newslist_fy">
+                <ul class="N_newslist_fy_ul">
+                     {$page}
+                    <!-- <li class="on">
+                        <a>1</a>
+                    </li>
+                    <li>
+                        <a>2</a>
+                    </li>
+                    <li class="page">
+                        <a>下一页</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$site_info.site_name|default=''}</title>
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'/>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_about_box">
+        <h2>{$tp.post_title}</h2>
+
+        <?php $content=htmlspecialchars_decode($tp['post_content']); ?>
+        <p>{$content}</p>
+    </div>
+   <!--  <div class="N_about_project">
+        <ul class="N_about_project_ul">
+            <?php  $img7=json_decode($result7['more'],true);
+                   $img7src=$img7['thumbnail'];
+            ?>
+            <?php  $img5=json_decode($result5['more'],true);
+                   $img5src=$img5['thumbnail'];
+            ?>
+            <?php  $img8=json_decode($result8['more'],true);
+                   $img8src=$img8['thumbnail'];
+            ?>
+            <?php  $img6=json_decode($result6['more'],true);
+                   $img6src=$img6['thumbnail'];
+            ?>
+            <li>
+                <a>
+                    <div class="N_about_project_ul_img">
+                        <img src="./upload/{$img5src}">
+                    </div>
+                    <div class="N_about_project_ul_text">
+                        <img src="__TMPL__/public/assets/images/ab_05.jpg">
+                        <div class="N_about_project_ul_text_box">
+                             <h2>{$result7["name"]}  </h2>
+                              <p>{$result7["description"]}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="N_about_project_ul_text">
+                        <img src="__TMPL__/public/assets/images/ab_05.jpg">
+                        <div class="N_about_project_ul_text_box">
+                           <h2>{$result5["name"]}</h2>
+                              <p>{$result5["description"]}</p>
+                        </div>
+                    </div>
+                    <div class="N_about_project_ul_img">
+                        <img src="./upload/{$img7src}">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="N_about_project_ul_img">
+                        <img src="./upload/{$img6src}">
+                    </div>
+                    <div class="N_about_project_ul_text">
+                        <img src="__TMPL__/public/assets/images/ab_05.jpg">
+                        <div class="N_about_project_ul_text_box">
+                             <h2>{$result8["name"]}</h2>
+                              <p>{$result8["description"]}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="N_about_project_ul_text">
+                        <img src="__TMPL__/public/assets/images/ab_05.jpg">
+                        <div class="N_about_project_ul_text_box">
+                            <h2>{$result6["name"]}</h2>
+                              <p>{$result6["description"]}</p>
+                        </div>
+                    </div>
+                    <div class="N_about_project_ul_img">
+                        <img src="./upload/{$img8src}">
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="N_about_project_more">
+            <a href="project.html" class="about_text_a">查看详情</a>
+        </div>
+    </div> -->
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

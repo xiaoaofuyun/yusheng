@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$site_info.site_name|default=''}</title>
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+       <script src="__TMPL__/public/assets/js/jquery-3.3.1.min.js" ></script>
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------banner------------>
+<div class="banner">
+    <div class="banner_img">
+      <php>
+        //$top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+    </php>
+        <slides id="1">
+          
+               <a href="{$vo.url|default=''}"> <img src="{:cmf_get_image_url($vo.image)}" alt="">
+            </a>
+        
+    </slides>
+
+        <!-- <img src="__TMPL__/public/assets/images/banner.jpg"> -->
+    </div>
+    
+    <div class="banner_text">
+        <slides id="1">
+        <h2>{$vo.title|default=''}</h2>
+        <a href="contact.html">{$vo.description|default=''}</a>
+        </slides>
+    </div>
+     
+</div>
+<!------------banner------------>
+<!------------公司简介------------>
+<div class="about Content">
+    <div class="about_img">
+        <img src="./upload/{$tp['thumbnail']}">
+    </div>
+    <div class="about_text">
+      <script>
+        $(function(){
+         var strPath = <?php  echo $_SERVER['SERVER_NAME'];; ?>;
+        // alert(strPath);  
+     // $.get("",function(data,status){
+     //         alert("Data: " + data + "\nStatus: " + status);
+     //   });
+});
+        
+      </script>
+
+        <h2>{$tname}</h2>
+        <div class="about_text_xian">
+            <div></div>
+        </div>
+        <div class="about_text_box" style='text-align:left;line-height:37px;'>
+            <?php  
+			     
+				// echo $tp['post_excerpt'];
+              $content=strip_tags(htmlspecialchars_decode($tp['post_content']));
+			  // dump($content);
+            echo mb_substr( $content, 0, 108, "utf-8" ).'...'  ?>
+        </div>
+        <a href="about.html" class="about_text_a">查看详情</a>
+    </div>
+</div>
+<!------------公司简介------------>
+<!------------项目展示------------>
+<div class="Content project">
+    <div class="Gytitle">
+        <div class="Gytitle_box">
+
+            <php>
+              //dump($project);
+            </php>
+            <h2>{$result2["name"]}</h2>
+            <h4>{$result2["description"]}</h4>
+        </div>
+    </div>
+    <div class="project_box">
+        <div class="project_box_left">
+            <ul id="projectUl">
+                <li class="on">
+                   <a href="/portal/index/projectdd?cid={$project['0']['id']}">
+                        <div class="project_box_left_text">
+                            <h2>{$project['0']['post_title']}</h2>
+                            <p>{$project['0']['update_time']|date="Y/m/d",###}</p>
+                            <h5>01</h5>
+                        </div>
+                    </a>
+                </li>
+                <volist name='project' id="vo" offset="1" key="k">
+                <li>
+                  <a href="/portal/index/projectdd?cid={$vo['id']}">
+                        <div class="project_box_left_text">
+                            <h2>{$vo.post_title}</h2>
+                            <p>{$vo.update_time|date="Y/m/d",###}</p>
+                            <h5>
+                           <if condition="$k<9 "> 0{$k+1}
+                          
+                          <else />{$k+1}
+                            </if>
+                            
+
+                             </h5>
+                        </div>
+                    </a>
+                </li>
+                </volist>
+                
+            </ul>
+        </div>
+        <div class="project_box_right" id="projectImg">
+
+            
+              <volist name='project' id="vo" offset="0" key="k">
+            <!-- <img class="on" src="__TMPL__/public/assets/images/p_01.jpg">
+            <img src=""> -->
+          <php>$img=json_decode($vo['more'],true);
+
+              $imgsrc=$img['photos']['0']['url'];
+          </php>
+         <if condition="$k == '1'">
+          <img class='on' src="./upload/{$imgsrc}" >
+          <else/><img src="./upload/{$imgsrc}"  >
+         </if>
+            
+         
+            <!-- <img src="__TMPL__/public/assets/images/p_04.jpg">
+            <img src="__TMPL__/public/assets/images/p_05.jpg">
+            <img src="__TMPL__/public/assets/images/p_05.jpg"> -->
+              
+           </volist>
+           
+        </div>
+    </div>
+</div>
+<!------------项目展示------------>
+<!------------新闻资讯------------>
+
+<div class="Content news">
+    <div class="Gytitle">
+        <div class="Gytitle_box">
+           <h2>{$result3["name"]}</h2>
+            <h4>{$result3["description"]}</h4>
+        </div>
+    </div>
+
+    <div class="news_box" >
+        <div id="news_box">
+            <ul class="news_box_ul" id="news_box_ul">
+                  
+                <volist name="cnews" id="vo">
+               
+              
+                  <php>
+                    $imgnew=json_decode($vo['more'],true);
+                    $imgnewsrc= $imgnew['thumbnail'];
+                  </php>
+                 <li>
+                    <a class="news_box_ul_box" href="/portal/index/newsdd?cid={$vo['id']}">
+                        <div class="news_box_ul_img">
+                            <img  src="./upload/{$imgnewsrc}">
+                        </div>
+                        <div class="news_box_ul_text">
+                            <h2>
+                               <php>echo mb_substr($vo['post_title'],0,9).'...';</php>
+                            </h2>
+                            <p>{$vo.post_excerpt}</p>
+                            <div class="news_box_ul_text_date">
+                                 <h3>{$vo.update_time|date="m/d",###}</h3>
+                                <p>{$vo.update_time|date="Y",###}</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+            </volist>
+                
+
+
+            </ul>
+        </div>
+        <div class="news_box_but">
+            <div id="news_box_but_left"></div>
+            <div id="news_box_but_right"></div>
+        </div>
+    </div>
+    <div class="news_more">
+        <a href="news_list.html" class="about_text_a">查看详情</a>
+    </div>
+
+</div>
+<!------------新闻资讯------------>
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+<!-- <hook name="before_body_end"/> -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>{$site_info.site_name|default=''}</title>
+   <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_honor">
+
+
+       
+        <h2 class="N_honor_title">人才招聘</h2>
+        <ul class="join" id="join_ul">
+             <volist name='content' id='vo'>
+
+            <php>
+               
+                 $zp=explode('#',$vo['post_content']);
+                 $c1=htmlspecialchars_decode($zp['1']);
+                  $c2=htmlspecialchars_decode($zp['3']);
+                 $ef=explode('#',$vo['post_excerpt']);
+                 $ef1=htmlspecialchars_decode($ef['1']);
+                  $ef2=htmlspecialchars_decode($ef['3']);
+                
+                
+                </php>
+            <li>
+                <div class="join_box">
+                    <div class="join_box_left">
+                        <h2>{$vo.post_title}</h2>
+
+                         <php> $arr=explode('/',$vo['post_keywords']);
+
+
+                        
+                     </php>
+                        <h4>发布时间：<span>{$vo.create_time|date='Y-m-d',###}</span><span>|</span>学历：<span>{$arr['0']}</span><span>|</span>人数：<span>{$arr['1']}人</span></h4>
+                    </div>
+                    <div class="join_box_right"></div>
+                </div>
+                <div class="join_introduction">
+                    <div>
+                        <h2>岗位职责</h2>
+                      
+                        <div>
+                            {$c1}
+                        </div>
+                    </div>
+                    <div>
+                        <h2>岗位要求</h2>
+                        <div>
+                            {$c2}
+
+                        </div>
+                    </div>
+                    <div class="join_introduction_email">
+                        <p>简历投递邮箱：{$ef1}  应聘电话：{$ef2}</p>
+                    </div>
+                </div>
+            </li>
+            
+
+           </volist>
+
+
+        </ul>
+    </div>
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

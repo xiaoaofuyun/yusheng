@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shanghai Yusheng</title>
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'/>
+<!------------内页banner------------>
+<!------------正文------------->
+ 
+<div class="Nycenter N_about">
+    <div class="N_news">
+        <ul class="N_news_ul">
+
+            <volist name='cnews' id='vo'>
+              <php>
+                $img=json_decode($vo['more'],true);
+
+              $imgsrc=$img['thumbnail'];
+          
+              </php>
+            <li>
+                <a href="news_list.html?id={$vo.id}">
+                    <div class="N_news_ul_img">
+                        <img src="./upload/{$imgsrc}">
+                        <div></div>
+                    </div>
+                    <div class="N_news_ul_text">
+                        <h2>{$vo.name}</h2>
+                    </div>
+                </a>
+            </li>
+            </volist>
+        </ul>
+    </div>
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

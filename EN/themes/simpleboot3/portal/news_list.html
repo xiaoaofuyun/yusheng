@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>{$site_info.site_name|default=''}</title>
+   <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_honor">
+        <h2 class="N_honor_title">{$result['name']}</h2>
+        <div class="N_newslist">
+            <ul class="N_newslist_ul">
+
+                 <volist name='news_content' id='vo'>
+                <li>
+                    <a href="newsdetails.html?id={$c_id}&cid={$vo.id}&pg={$pg}">
+                        <div class="N_newslist_ul_date">
+                            <h3>{$vo.create_time|date="d",###}</h3>
+                            <h4>{$vo.create_time|date="Y-m",###}</h4>
+                        </div>
+                        <div class="N_newslist_ul_img">
+                            <img src="./upload/{$vo.thumbnail}">
+                        </div>
+                        <div class="N_newslist_ul_text">
+                            <h2>{$vo.post_title}</h2>
+                            <p>{$vo.post_excerpt}</p>
+                        </div>
+                    </a>
+                </li>
+                </volist>
+
+
+
+
+            </ul>
+            
+            <div class="N_newslist_fy">
+                <ul class="N_newslist_fy_ul">
+
+
+                    {$page}
+                    
+                    <!-- <li class="page">
+                        <a>下一页</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

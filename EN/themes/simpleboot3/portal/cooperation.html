@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$site_info.site_name|default=''}</title>
+   <link rel="stylesheet" href="__TMPL__/public/assets/css/rest.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/css/index.css">
+</head>
+<body>
+<!------------共用导航------------>
+<include file='public@nav'/>
+<!------------共用导航------------>
+<!------------内页banner------------>
+<include file='public@banner'>
+<!------------内页banner------------>
+<!------------正文------------->
+<div class="Nycenter N_about">
+    <div class="N_honor">
+        <h2 class="N_honor_title">{$coopername['name']}</h2>
+        <ul class="cooperation" id="C_ul">
+            <volist name="coopcontent" id='vo'>
+            <li>
+                <div class="cooperation_img">
+                    <img src="./upload/{$vo.thumbnail}">
+                </div>
+                <div class="cooperation_text">
+                    <h2>{$vo.post_title}</h2>
+                    <p> {$vo.post_excerpt}</p>
+                </div>
+            </li>
+            </volist>
+        </ul>
+    </div>
+</div>
+<!------------正文------------->
+
+<!------------共用底部------------>
+<include file='public@footer'/>
+<!------------共用底部------------>
+
+
+
+<script src="__TMPL__/public/assets/js/js.js"></script>
+
+</body>
+</html>

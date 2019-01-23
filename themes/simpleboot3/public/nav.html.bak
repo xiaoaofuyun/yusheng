@@ -1,0 +1,131 @@
+<div class="header">
+    <div class="header_box">
+        <div class="logo">
+            <a href="index.html">
+                <img src="__TMPL__/public/assets/images/logo.png">
+            </a>
+        </div>
+        <div class="nav">
+
+
+                <navigation nav-id="" root="ul" id="main-navigation" class="nav_ul">
+    <navigationMenu root="li" class="">
+        <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">{$menu.name|default=''}</a>
+    </navigationMenu>
+    <navigationFolder root="li" class="" dropdown="ul"
+                      dropdown-class="nav_ul_er">
+        <a href="{$menu.href|default=''}" class="" data-toggle="dropdown">
+            {$menu.name|default=''}
+        </a>
+    </navigationFolder>
+</navigation>
+
+
+        </div>
+        <div class="language">
+            <div class="language_title"><span></span><strong> </strong></div>
+            <div class="language_div">
+                <ul>
+                    <li>
+                        <a href="#" data_lan='CN'>中文简体</a>
+                    </li>
+                    <li>
+                        <a href="#" data_lan='CT'>中文繁體</a>
+                    </li>
+                    <li>
+                        <a href="#" data_lan='EN'>English</a>
+                    </li>
+                    <li>
+                        <a href="#" data_lan='JP'>日本語</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__TMPL__/public/assets/js/jquery-3.3.1.min.js"></script>
+<script >
+	$(function() {
+		
+
+		$('.language_div li a').click(function() {
+			
+			window.localStorage.setItem('key1',$(this).attr('data_lan'))
+			//console.log(window.localStorage.getItem('key1'));
+			//alert(2);
+			//alert(window.location.href);
+			//window.location.origin;
+			//alert(window.location.pathname);
+			//window.location.href=window.location.origin+'/'+$(this).attr('data_lan')+window.location.pathname;
+			//alert(window.location.origin+'/'+$(this).attr('data_lan')+window.location.pathname);
+			var newurl=window.location.origin+'/'+$(this).attr('data_lan')+'/index.php'+window.location.pathname;
+			//alert(newurl);
+			if($(this).attr('data_lan')=='CN'){
+                   var CNurl=window.location.origin+window.location.pathname;
+                 // window.location.url=CNurl;
+                 $(this).attr('href',CNurl);
+			}
+			else{
+				//window.location.href=newurl;
+			//alert(window.location.href);
+			$(this).attr('href',newurl);
+			}
+			
+			
+		})
+	  
+       //  alert($('.language_title').text());
+	    // alert(window.localStorage.getItem('key1'));
+	    
+	   var href= window.location.href;
+	  var arrpath= href.split('/')
+	  //console.log(arrpath);
+	  for (var i=0;i<arrpath.length;i++) {
+	  	   if(arrpath[i]=='CN'){
+	  	   	window.localStorage.setItem('key1','CN')
+	  	   	var newhref=href.replace('/CN','');
+	  	   	window.location.href=newhref;
+	  	   }
+	  	  else if (arrpath[i]=='CT') {
+	  	   		window.localStorage.setItem('key1','CT')
+	  	   	}
+	  	   			else if (arrpath[i]=='EN') {
+	  	   				window.localStorage.setItem('key1','EN')
+	  	   			}
+	  	   					else if (arrpath[i]=='JP') {
+	  	   						window.localStorage.setItem('key1','JP')
+	  	   					}
+	  	   						else{
+	  	   							window.localStorage.setItem('key1','CN');
+	  	   						}
+	  }
+
+
+	    var key1=window.localStorage.getItem('key1');
+	    //alert(typeof(key1));
+	   // console.log(key1);
+	      if(typeof(key1) != "undefined"){
+	     
+	     	$('.language_title strong').text(key1);
+	     	//window.location.href=window.location.origin+'/'+key1+window.location.pathname
+	     }else{
+	     	$('.language_title strong').text('CN');
+	     }
+		
+	})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

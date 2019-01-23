@@ -1,0 +1,33 @@
+<div class="Nybanner">
+    <slides id="$banner_id">
+          
+               <a href="{$vo.url|default=''}"> <img src="{:cmf_get_image_url($vo.image)}" alt="">
+            </a>
+        
+    </slides>
+    
+    <div class="Nybanner_bg">
+        <div class="Nybanner_bg_box">
+            <slides id="$banner_id">
+        <h2>{$vo.title|default=''}</h2>
+       <h4>{$vo.description|default=''}</h4>
+        </slides>
+            
+          
+        </div>
+    </div>
+</div>
+<div class="GyBreadcrumbs">
+    <div class="GyBreadcrumbs_box">
+        <h2>current position：<a href="index.html">Home </a>>
+            <span>
+            <taglib name="app\portal\taglib\Portal"/>
+           <portal:breadcrumb cid="$current_id" self="true">     
+        {$vo.name}
+        
+
+         <span class="GyBreadcrumbs_box_span">></span>
+        </portal:breadcrumb> 
+    </span></h2>
+    </div>
+</div>
